@@ -1,0 +1,82 @@
+<html ng-app="mainApp">
+<head>
+	<title>title for index</title>
+	<script type="text/javascript" src="../js/lib/angular.min.js"></script>
+	<script type="text/javascript" src="../js/lib/angular-resource.js"></script>
+	<script type="text/javascript" src="../js/lib/angular-route.min.js"></script>
+	<script type="text/javascript" src="../js/controllers/meetups-controller.js"></script>
+	<link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+  	<script src="../bootstrap/jquery.min.js"></script>
+  	<script src="../bootstrap/bootstrap.min.js"></script>	
+</head>
+<body>
+	<div ng-app="mainApp">
+			<div class="container-fluid">
+				<nav class="navbar navbar-inverse">
+					    <div class="navbar-header">
+					      <a class="navbar-brand" href="#">Router Test</a>
+					    </div>
+					<ul class="nav navbar-nav">
+				      <li class="active"><a href="#addUser">Registration</a></li>
+				      <li><a href="#viewUser">View User</a></li>
+				    </ul>
+				</nav>
+				<div ng-view class="container-fluid">
+
+				</div>
+				<script type="text/ng-template" id="register.htm">
+					<div>
+						<table class="table">
+							<tr>
+								<td>Name</td>
+								<td>
+									<input type="text" ng-model="user.name"/>
+								</td>
+							<tr>
+							<tr>
+								<td>Email</td>
+								<td>
+									<input type="text" ng-model="user.mail"/>
+								</td>
+							<tr>
+
+							<tr>
+								<td>Pass</td>
+								<td>
+									<input type="text" ng-model="user.pass"/>
+								</td>
+							<tr>
+							<tr>
+								<td colspan="2">
+									<button type="button" class="button" ng-click="addUsr()">Save</button>
+								</td>
+							<tr>
+						</table>
+					</div>
+				</script>
+				<script type="text/ng-template" id="view.htm">
+					<div>
+						<table class="table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Password</th>
+								<th><button ng-click="edit($index, use)">Edit</button></th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="use in members">
+							<td>{{use.username}}</td>
+							<td>{{use.mail}}</td>
+							<td>{{use.pass}}</td>
+							<td><button ng-click="edit($index, use)">Edit</button></td>
+						</tr>
+						</tbody>
+					</table>
+					</div>
+				</script>
+			</div>
+		</div>
+	</body>
+</html>
